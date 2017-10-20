@@ -18,10 +18,10 @@ if [ -z "$2" ]; then
     if [ -z "$SGE_TASK_ID" ]; then
         usage_exit
     else
-        $LENGTH=$SGE_TASK_ID
+        LENGTH=$SGE_TASK_ID
     fi
 else
-    $LENGTH="$2"
+    LENGTH="$2"
 fi
 if [ -z "$3" ]; then
     if [ -z "$NSLOTS" ]; then
