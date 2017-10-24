@@ -17,6 +17,6 @@ __By default, this script passes only score=1 (uniquely mappable) regions.__
 > `01-make-gem-index.sh`, `02-make-mappability.sh`
 
 If a number of threads is not specified, these scripts use `NSLOTS` variable as the number of threads.
-> `02-make-mappability.sh`
+> `02-make-mappability.sh`, `03-get-bigwig.sh`
 
-If a read length is not specified, this script uses `SGE_TASK_ID` variable as the read length.
+If a read length is not specified, these scripts use `SGE_TASK_ID` variable as the read length.

@@ -15,12 +15,15 @@ else
     INDEX="$1"
 fi
 if [ -z "$2" ]; then
-    usage_exit
+    MAPPABILITY="${INDEX%/*}/$SGE_TASK_ID/${${INDEX##*/}%.gem}.mappability"
+    if [ -z "$SGE_TASK_ID" ] || [ ! -e "$MAPPABILITY" ]; then
+        usage_exit
+    fi
 else
     MAPPABILITY="$2"
-    OUTPUT=${2%mappability}bigwig
-    TEMPNAME=${2%.mappability}_temp
 fi
+OUTPUT=${MAPPABILITY%mappability}bigwig
+TEMPNAME=${MAPPABILITY%.mappability}_temp
 
 # mappability to bedGraph
 mkfifo $TEMPNAME.wig
